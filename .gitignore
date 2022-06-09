@@ -1,0 +1,7 @@
+node_modules/
+dist
+.vs_code
+.idea
+db
+webpack.config copy.js
+sql.sql
