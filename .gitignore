@@ -1,6 +1,6 @@
 node_modules/
 dist
-.vs_code
+.vscode
 .idea
 db
 webpack.config copy.js

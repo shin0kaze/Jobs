@@ -1,12 +1,16 @@
 import express from 'express';
-import { indexHTML } from './index'
+import { indexHTML } from './index';
 const path = require('path');
+import * as db from './sql';
+
 
 const app = express();
+app.use('/static', express.static(path.join(__dirname,'public')));
 
 app.get('/', (request, response) => {
-    //app.use(express.static(path.join(__dirname, '../index.html')))
-    let path
+    console.log(path.join(__dirname,'public') +' <- public');
+     // '../index.html')
+    //response.send(db.getAll());
     response.send(indexHTML());
     //response.sendFile('index.html', { root: __dirname });
 });

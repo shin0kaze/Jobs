@@ -1,4 +1,8 @@
-export const indexHTML = (content) => `
+const path = require('path');
+//const JS_PATH = path.join(__dirname, './main.js');
+const JS_PATH = '/static/client.js';
+console.log(JS_PATH);
+export const indexHTML = (JS_PATH) => `
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -18,14 +22,14 @@ export const indexHTML = (content) => `
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/static/style.css">
   <!-- JavaScript Bundle with Popper shift alt f -->
   <!--<script>
     function changeDropdownCaption(item) {
       document.getElementById('dropdown03').innerText = item.innerText;
     }
   </script>-->
-<script defer src="main.js"></script></head>
+<script defer src="/static/client.js"></script></head>
 
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">

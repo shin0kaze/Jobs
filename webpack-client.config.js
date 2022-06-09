@@ -7,9 +7,9 @@ const HTMLWebpackPlugin = HAS_SERVER? undefined : require('html-webpack-plugin')
 
 module.exports = {
     mode: process.env.MODE ? process.env.MODE : 'development',
-    entry: path.resolve(__dirname, 'src/client/index.js'),
+    entry: path.resolve(__dirname, 'src/client/client.js'),
     output: {
-        path: path.resolve(__dirname, 'dist/client'),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'client.js'
     },
     plugins: HAS_SERVER? undefined :[
