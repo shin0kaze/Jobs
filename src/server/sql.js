@@ -19,6 +19,52 @@ con.serialize(() => {
     });
 });
 
-function getAll() {}
 
-export {getAll};
+async function getPost() {
+    return new Promise(function(resolve, reject) {
+        con.all('select * from post', function (err, rows) {
+            if(err) {return reject(err);}
+            resolve(rows);
+        });
+    });
+}
+
+async function getDept() {
+    return new Promise(function(resolve, reject) {
+        con.all('select * from dept', function (err, rows) {
+            if(err) {return reject(err);}
+            resolve(rows);
+        });
+    });
+}
+
+async function getWorker(post, dept) {
+    return new Promise(function(resolve, reject) {
+        let where = whereClause(post, dept);
+        let query = `select * from \`worker\`${where};`;
+        console.log(query); //[post, dept]
+        con.all(query, function (err, rows) {
+            if(err) {return reject(err);}
+            resolve(rows);
+        });
+    });
+}
+
+async function getPromo() {
+    return new Promise(function(resolve, reject) {
+        con.all('select * from promotion', function (err, rows) {
+            if(err) {return reject(err);}
+            resolve(rows);
+        });
+    });
+}
+
+function whereClause(post, dept) {
+    let where='', post_cond = '', dept_cond='', and='';
+    if (post || dept) where = ' where '
+    if (post) post_cond = ' post_name = ? ';
+    if (dept) dept_cond = ' dept_name = ? ';
+    if (post && dept) and = ' and ';
+    return where + post_cond + and + dept_cond;
+}
+export {getPromo, getDept, getPost, getWorker};

@@ -1,7 +1,7 @@
 const path = require('path');
 const HAS_SERVER = true;
 
-const HTMLWebpackPlugin = HAS_SERVER? undefined : require('html-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 
 
@@ -9,10 +9,10 @@ module.exports = {
     mode: process.env.MODE ? process.env.MODE : 'development',
     entry: path.resolve(__dirname, 'src/client/client.js'),
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist/public'),
         filename: 'client.js'
     },
-    plugins: HAS_SERVER? undefined :[
+    plugins: [
         new HTMLWebpackPlugin({template: path.resolve(__dirname, 'src/index.html')})
     ],
     devServer: HAS_SERVER? undefined : {
