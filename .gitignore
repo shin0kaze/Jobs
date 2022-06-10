@@ -4,4 +4,3 @@ dist
 .idea
 db
 webpack.config copy.js
-sql.sql
